@@ -2,8 +2,6 @@ import React from 'react'
 
 export const History = ({history}) => {
   
-  console.log(history);
-
   return (
     <>
       {history.length !== 0 && <div className='historyTitle'>History</div>}

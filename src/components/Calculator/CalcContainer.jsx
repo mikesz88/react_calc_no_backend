@@ -10,15 +10,20 @@ const CalcContainer = () => {
 
   const updateEntry = (e) => {
     const entry = e.target.value;
-    if (Number(entry)) {
+    if (entry.split('').includes('.')) {
       setState(prevState => ({
         ...prevState,
-        entry: Number(entry),
+        entry,
       }))
     } else if (entry.length === 0) {
       setState(prevState => ({
         ...prevState,
         entry: '',
+      }))
+    } else if (+entry) {
+      setState(prevState => ({
+        ...prevState,
+        entry: +entry,
       }))
     }
   }

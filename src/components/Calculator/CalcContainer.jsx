@@ -22,10 +22,14 @@ const CalcContainer = () => {
     }
   }
 
-  const keypadEntry = (num) => setState(prevState => ({
-    ...prevState,
-    entry: num,
-  }))
+  const keypadEntry = (num) => {
+    if (num) {
+      setState(prevState => ({
+        ...prevState,
+        entry: Number(prevState.entry + num),
+      }))
+    }
+  }
 
   const updateHistory = (equation) => {
     setState(prevState => ({

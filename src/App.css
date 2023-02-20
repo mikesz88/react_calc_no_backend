@@ -53,13 +53,6 @@
   background-color: bisque;
 }
 
-.keypadContainer div {
-  width: 125px;
-  height: 110px;
-  font-size: 2rem;
-  background-color: bisque;
-}
-
 .operationContainer {
   flex: 1;
 }

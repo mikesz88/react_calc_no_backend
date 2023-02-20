@@ -22,7 +22,7 @@
 
 .input {
   width: 90%;
-  color: white;
+  color: bisque;
   text-align: right;
   background-color: transparent;
   border: none;
@@ -48,11 +48,22 @@
 
 .keypadContainer button {
   width: 125px;
-  height: 110px;
+  height: 108px;
   font-size: 2rem;
-  background-color: bisque;
+  color: bisque;
+  background-color: transparent;
 }
 
 .operationContainer {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.operationContainer button {
+  width: 125px;
+  height: 62px;
+  font-size: 2rem;
+  color: bisque;
+  background-color: transparent;
 }

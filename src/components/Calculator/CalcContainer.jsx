@@ -22,12 +22,129 @@ const CalcContainer = () => {
     }
   }
 
+  const reassignEntryToNum1 = () => {
+    setState(prevState => ({
+      ...prevState,
+      num1: prevState.entry,
+      entry: '',
+    }))
+  }
+
   const keypadEntry = (num) => {
     if (num) {
       setState(prevState => ({
         ...prevState,
         entry: Number(prevState.entry + num),
       }))
+    }
+  }
+
+  const updateOperation = (currentOperation) => {
+    if (currentOperation !== '=') {
+      setState(prevState => ({
+        ...prevState,
+        currentOperation,
+      }))
+    }
+    operationAction(currentOperation);
+    }
+
+
+  const solveEquation = () => {
+    switch (state.currentOperation) {
+      case "+":
+        setState(prevState => ({
+          ...prevState,
+          num1: '',
+          currentOperation: '',
+          entry: prevState.num1 + prevState.entry,
+          history: [
+            ...prevState.history,
+            {
+              num1: prevState.num1,
+              num2: prevState.entry,
+              operation: prevState.currentOperation,
+              answer: prevState.num1 + prevState.entry,
+            }
+          ]
+        }))
+      break;
+      case "-":
+        setState(prevState => ({
+          ...prevState,
+          num1: '',
+          currentOperation: '',
+          entry: prevState.num1 - prevState.entry,
+          history: [
+            ...prevState.history,
+            {
+              num1: prevState.num1,
+              num2: prevState.entry,
+              operation: prevState.currentOperation,
+              answer: prevState.num1 - prevState.entry,
+            }
+          ]
+        }))
+      break;
+      case "x":
+        setState(prevState => ({
+          ...prevState,
+          num1: '',
+          currentOperation: '',
+          entry: prevState.num1 * prevState.entry,
+          history: [
+            ...prevState.history,
+            {
+              num1: prevState.num1,
+              num2: prevState.entry,
+              operation: prevState.currentOperation,
+              answer: prevState.num1 * prevState.entry,
+            }
+          ]
+        }))
+      break;
+      case "/":
+        setState(prevState => ({
+          ...prevState,
+          num1: '',
+          currentOperation: '',
+          entry: prevState.num1 / prevState.entry,
+          history: [
+            ...prevState.history,
+            {
+              num1: prevState.num1,
+              num2: prevState.entry,
+              operation: prevState.currentOperation,
+              answer: prevState.num1 / prevState.entry,
+            }
+          ]
+        }))
+      break;
+    
+      default:
+        break;
+    }
+  }
+
+  const resetState = () => setState(prevState => ({
+    ...INIT_STATE,
+    history: prevState.history,
+  }));
+
+  const operationAction = (operation) => {
+    switch (operation) {
+      case '<-':
+        
+      break;
+      case 'Clear':
+        resetState();
+      break;
+      case '=':
+        solveEquation();
+      break;
+      default:
+        reassignEntryToNum1();
+        break;
     }
   }
 
@@ -38,14 +155,18 @@ const CalcContainer = () => {
     }))
   }
 
-  console.log(state.entry);
 
   return (
     <div className='calcContainer'>
-      <InputField entry={state.entry} updateEntry={updateEntry} />
+      <InputField
+        entry={state.entry}
+        num1={state.num1}
+        operation={state.currentOperation}
+        updateEntry={updateEntry}
+      />
       <div className='numberFlex'>
         <Keypad keypadEntry={keypadEntry} />
-        <Operations />
+        <Operations updateOperation={updateOperation} />
       </div>
     </div>
   )

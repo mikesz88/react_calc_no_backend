@@ -1,6 +1,8 @@
 export const INIT_STATE = {
   entry: '',
+  num1: '',
   history: [],
+  currentOperation: '',
 };
 
 /* 

@@ -3,6 +3,7 @@ import { INIT_STATE } from '../../constants/CalculatorState'
 import InputField from './InputField';
 import Keypad from './Keypad';
 import Operations from './Operations';
+import { History } from '../History';
 
 const CalcContainer = () => {
   const [state, setState] = useState(INIT_STATE);
@@ -168,6 +169,7 @@ const CalcContainer = () => {
         <Keypad keypadEntry={keypadEntry} />
         <Operations updateOperation={updateOperation} />
       </div>
+      <History history={state.history} />
     </div>
   )
 }

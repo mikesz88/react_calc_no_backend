@@ -67,3 +67,8 @@
   color: bisque;
   background-color: transparent;
 }
+
+.historyTitle {
+  margin-top: 1rem;
+  font-size: 2rem;
+}

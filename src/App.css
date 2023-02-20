@@ -34,3 +34,32 @@
   border: none;
   outline: none;
 }
+
+.numberFlex {
+  display: flex;
+}
+
+.keypadContainer {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.keypadContainer button {
+  width: 125px;
+  height: 110px;
+  font-size: 2rem;
+  background-color: bisque;
+}
+
+.keypadContainer div {
+  width: 125px;
+  height: 110px;
+  font-size: 2rem;
+  background-color: bisque;
+}
+
+.operationContainer {
+  flex: 1;
+}

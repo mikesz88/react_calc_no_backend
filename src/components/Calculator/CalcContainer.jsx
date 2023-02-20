@@ -12,7 +12,7 @@ const CalcContainer = () => {
   }
 
   return (
-    <div>CalcContainer</div>
+    <div className='calcContainer'>CalcContainer</div>
   )
 }
 

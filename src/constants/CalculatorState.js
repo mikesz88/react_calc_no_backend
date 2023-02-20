@@ -1,9 +1,10 @@
 export const INIT_STATE = {
+  entry: '',
   history: [],
 };
 
 /* 
-  Example object:
+  Example history object:
   {
   num1: X,
   operation1: Y,
